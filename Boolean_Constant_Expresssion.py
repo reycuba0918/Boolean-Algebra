@@ -1,10 +1,15 @@
-class boolean_expresssion:
-    
-    def __init__(self, Expression: str) -> None:
-        self.solution = self.boolean_arithmetic(Expression)
+class boolean_constant_expresssion:
 
-    def __str__(self) -> str:
-        self.solution
+    def __init__(self, expression: str, output_format = int) -> None:
+        self.output_format = output_format
+        self.expression = expression
+        self.solution = self.boolean_arithmetic(expression)
+
+    def __str__(self):
+        if self.output_format == bool:
+            return format("%s = %r" % (self.expression, False if self.solution == 0 else True))
+        else:
+            return format("%s = %d" % (self.expression, self.solution))
 
     def boolean_arithmetic(self, equ: str) -> int:
         arithmethic_equ = ""
@@ -29,11 +34,11 @@ class boolean_expresssion:
                                 break
                         inner_equ += equ[char_num]
                         char_num += 1
-                    arithmethic_equ += format(self.boolean_arithmetic(inner_equ))
+                    arithmethic_equ += "1" if self.boolean_arithmetic(inner_equ) == 0 else "0"
                 else:
+                    arithmethic_equ += equ[char_num - 1]
                     arithmethic_equ += equ[char_num]
             else:
                 arithmethic_equ += equ[char_num]
             char_num += 1
-        solution = eval(arithmethic_equ)
-        return 1 if solution > 0 else 0
+        return eval(arithmethic_equ) if eval(arithmethic_equ) == 0 else 1
