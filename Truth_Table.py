@@ -1,6 +1,6 @@
 from Boolean_Constant_Expresssion import *
-from My_Dictionary import *
-from My_List import *
+from util.My_Dictionary import *
+from util.My_List import *
 
 class truth_table:
     
