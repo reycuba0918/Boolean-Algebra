@@ -10,14 +10,16 @@ class boolean_constant_expresssion:
         arithmethic_equ = ""
         char_num = 0
         while char_num < len(expression):
-            if expression[char_num] == '!':
+            if expression[char_num] != '!':
+                arithmethic_equ += expression[char_num]
+            else:
                 char_num += 1
                 if expression[char_num] == '1':
                     arithmethic_equ += '0'
                 elif expression[char_num] == '0':
                     arithmethic_equ += '1'
                 elif expression[char_num] == '(':
-                    brackets = ["("]
+                    brackets = ['(']
                     char_num += 1
                     inner_equ = ""
                     while len(brackets) != 0:
@@ -30,12 +32,10 @@ class boolean_constant_expresssion:
                         inner_equ += expression[char_num]
                         char_num += 1
                     testing = self.boolean_arithmetic(inner_equ)
-                    arithmethic_equ += "1" if testing == 0 else "0"
+                    arithmethic_equ += '1' if testing == 0 else '0'
                 else:
                     arithmethic_equ += expression[char_num - 1]
                     arithmethic_equ += expression[char_num]
-            else:
-                arithmethic_equ += expression[char_num]
             char_num += 1
         return eval(arithmethic_equ) if eval(arithmethic_equ) == 0 else 1
 

@@ -117,13 +117,15 @@ class truth_table:
             self.make_table()
 
     def __str__(self) -> str:
-        out = ""
+        output = ""
+        if self.inputs == {}:
+            return output
         for test in self._inputs:
             if self.output_format == bool:
-                out += format("%s | %s | %r" % (test, self._table[test].expression, False if self._table[test].output == 0 else True)) + "\n"
+                output += format("%s | %s | %r" % (test, self._table[test].expression, False if self._table[test].output == 0 else True)) + "\n"
             else:
-                out += format("%s | %s | %d" % (test, self._table[test].expression, self._table[test].output)) + "\n"
-        return out
+                output += format("%s | %s | %d" % (test, self._table[test].expression, self._table[test].output)) + "\n"
+        return output
     
     def sub_table(self, inputs: list[str] = []):
         if not inputs:

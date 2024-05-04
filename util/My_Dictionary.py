@@ -18,3 +18,14 @@ class my_dictionary(dict):
         if not self.initialing:
             self.valid = False
             self.table.update_inputs()
+
+    def update(self, *args, **kwargs):
+        super().update(*args, **kwargs)
+        if not self.initialing:
+            self.valid = False
+            self.table.update_inputs()
+
+    def clear(self) -> None:
+        super().clear()
+        self.table.update_inputs()
+        self.table.make_table()
