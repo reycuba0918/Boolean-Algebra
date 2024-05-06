@@ -141,7 +141,63 @@ Output:
 
 ### Properties for `truth_table`
 
-* `truth_table.output_format`: hold the output format that will be used when the `truth_table` gets printed.
+* `truth_table.has_header`: is a `bool` that is used to determine wether the header of a `valid` `truth_table` will be printed when `truth_table` gets printed.
+  * By default it is set to `True` meaning that a `valid` `truth_table` would print like this:
+    ```
+     in  | B * !(A + C) + A | out
+    -----|------------------|-----
+     011 | 1 * !(0 + 1) + 0 |  0
+     000 | 0 * !(0 + 0) + 0 |  0
+     100 | 0 * !(1 + 0) + 1 |  1
+     100 | 0 * !(1 + 0) + 1 |  1
+    ```
+  * When `has_header` is is false, a `truth_table` would be printed like this:
+    ```
+    011 | 1 * !(0 + 1) + 0 | 0
+    000 | 0 * !(0 + 0) + 0 | 0
+    100 | 0 * !(1 + 0) + 1 | 1
+    100 | 0 * !(1 + 0) + 1 | 1
+    ```
+  * Note that when the `truth_table` is not `valid` the `truth_table` will print without header even if `has_header` has been set to `True`.
+    * For example:
+      ```
+      from Truth_Table import truth_table
+      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+            
+      expression = "a * !b"
+      
+      table = truth_table(expression)
+      
+      print("valid: ", table.valid)
+      print("has_header: ", table.has_header)
+      print(table)
+      
+      print()
+      
+      table.table["01"] = boolean_constant_expresssion("1 + !1")
+      print("valid: ", table.valid)
+      print("has_header: ", table.has_header)
+      print(table)
+      ```
+      ```
+      valid:  True
+      has_header:  True
+       in | a * !b | out
+      ----|--------|-----
+       00 | 0 * !0 |  0
+       01 | 0 * !1 |  0
+       10 | 1 * !0 |  1
+       11 | 1 * !1 |  0
+      
+      valid:  False
+      has_header:  True
+      00 | 0 * !0 | 0
+      01 | 1 + !1 | 1
+      10 | 1 * !0 | 1
+      11 | 1 * !1 | 0
+      ```
+    
+* `truth_table.output_format`: holds the output format that will be used when the `truth_table` gets printed.
   * What are states that `output_format` can hold?
     * By defualt it is set to `int`. When this is the case the outputs for each outputs will etheir be a '1' or '0'.
       * Example:
@@ -311,7 +367,52 @@ Output:
           ```
     * `truth_table.valid` is set to `True`.
 
-* `truth_table.valid`: is of type `bool`. It is used to determine whether `truth_table.table` has been changed manually.
+* `truth_table.valid`: is of type `bool`. It is used to determine whether `truth_table.table` has been edited manually.
+  * When `truth_table.valid` is set to `True`: the `truth_table` gets recreated with the current `inputs`
+    * Example:
+      ```
+      from Truth_Table import truth_table
+      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      
+      expression = "A * B"
+      
+      tests = ["01", "11"]
+      
+      table = truth_table(expression, inputs = tests)
+      
+      print("Valid: ", table.valid)
+      print(table)
+      
+      print()
+      
+      table.table["10"] = boolean_constant_expresssion("1 + 1")
+      print("Valid: ", table.valid)
+      print(table)
+      
+      print()
+      
+      table.valid = True
+      print("Valid: ", table.valid)
+      print(table)
+      ```
+      ```
+       in | A * B | out
+      ----|-------|-----
+       01 | 0 * 1 |  0
+       11 | 1 * 1 |  1
+      
+      Valid:  False
+      01 | 0 * 1 | 0
+      11 | 1 * 1 | 1
+      10 | 1 + 1 | 1
+      
+      Valid:  True
+       in | A * B | out
+      ----|-------|-----
+       01 | 0 * 1 |  0
+       11 | 1 * 1 |  1
+       10 | 1 * 0 |  0
+      ```
 
 The variables in `expression` are any character in the `expression` that have an ASCII value that is in between 65-122 (A-Z or a-z).
 
