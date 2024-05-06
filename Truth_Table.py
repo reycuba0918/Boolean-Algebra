@@ -4,9 +4,10 @@ from util.My_List import *
 
 class truth_table:
     
-    def __init__(self, expression: str, output_format: type = int, inputs: list[str] = []):
+    def __init__(self, expression: str, output_format: type = int, has_header: bool = True, inputs: list[str] = []):
 
         self._output_format = output_format
+        self._has_header = has_header
         self._table = my_dictionary(self)
         self._expression = expression
         self._inputs = my_list(self, inputs)
@@ -15,13 +16,13 @@ class truth_table:
    
     def make_table(self):
         self._table.initialing = True
-        self.table.valid = True
-        keys = []
+        self._table.valid = True
+        keys = set()
         for character in self._expression:
             int_character = ord(character)
             if int_character >= 65 and int_character <= 122:
-                keys += character
-        keys.sort()
+                keys.add(character)
+        sorted(keys)
 
         variables = {}
         len_variables = len(keys)
@@ -65,10 +66,18 @@ class truth_table:
         self._table.initialing = False
 
     def update_inputs(self):
-        self._inputs = list(self._table.keys())
+        self._inputs = my_list(self, self.table.keys())
 
     def reset_inputs(self):
         self._inputs.clear()
+    
+    @property
+    def has_header(self):
+        return self._has_header
+    
+    @has_header.setter
+    def has_header(self, new_value):
+        self._has_header = new_value
     
     @property
     def output_format(self):
@@ -76,7 +85,7 @@ class truth_table:
     
     @output_format.setter
     def output_format(self, new_value):
-        self.output_format = new_value
+        self._output_format = new_value
 
     @property
     def table(self):
@@ -100,7 +109,7 @@ class truth_table:
 
     @property
     def inputs(self):
-        return self._inputs
+        return list(self._inputs)
         
     @inputs.setter
     def inputs(self, new_value):
@@ -109,7 +118,7 @@ class truth_table:
     
     @property
     def valid(self):
-        return self.table.valid
+        return self._table.valid
     
     @valid.setter
     def valid(self, new_value):
@@ -118,17 +127,44 @@ class truth_table:
 
     def __str__(self) -> str:
         output = ""
-        if self.inputs == {}:
+        if self._inputs == {}:
             return output
-        for test in self._inputs:
+        my_space = ''
+        in_formatter = "%s"
+        if self._has_header and self.valid:
+            my_space = ' '
+            input_i = self._inputs[0]
+            len_in = len(input_i) if len(input_i) >= 2 else 2
+            in_formatter = "%-" + format(len_in) + 's'
+            output += my_space + format(in_formatter % "in") + ' | '
+            len_expression = len(self._table[input_i].expression)
+            expression_formatter = "%-" + format(len_expression) + 's'
+            output += format(expression_formatter % self._expression) + ' | '
+            output += "out\n"
+            for i in range(0, len_in + 2):
+                output += '-'
+            output += '|'
+            for i in range(0, len_expression + 2):
+                output += '-'
+            output += '|-----\n'
+        for i in range(0, len(self._inputs)):
+            input_i = self._inputs[i]
             if self.output_format == bool:
-                output += format("%s | %s | %r" % (test, self._table[test].expression, False if self._table[test].output == 0 else True)) + "\n"
+                output_formatter = "%s" + in_formatter + " | %s | %r"
+                if i < len(self._inputs) - 1:
+                    output += format( output_formatter % (my_space, input_i, self._table[input_i].expression, False if self._table[input_i].output == 0 else True)) + "\n"
+                else:
+                    output += format(output_formatter % (my_space, input_i, self._table[input_i].expression, False if self._table[input_i].output == 0 else True))  
             else:
-                output += format("%s | %s | %d" % (test, self._table[test].expression, self._table[test].output)) + "\n"
+                output_formatter = "%s" + in_formatter + " | %s | %s%d"
+                if i < len(self._inputs) - 1:
+                    output += format(output_formatter % (my_space, input_i, self._table[input_i].expression, my_space, self._table[input_i].output)) + "\n"
+                else:
+                    output += format(output_formatter % (my_space, input_i, self._table[input_i].expression, my_space, self._table[input_i].output))
         return output
     
     def sub_table(self, inputs: list[str] = []):
         if not inputs:
-            return truth_table(self._expression, self.output_format, self.inputs)
+            return truth_table(self._expression, self.output_format, self._has_header, self.inputs)
         else:
-            return truth_table(self._expression, self.output_format, inputs)
+            return truth_table(self._expression, self.output_format, self._has_header, inputs)

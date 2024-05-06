@@ -25,3 +25,7 @@ class my_list(list):
     def extend(self, iterable: Iterable):
         super().extend(iterable)
         self.table.make_table()
+    
+    def clear(self) -> None:
+        super().clear()
+        self.table.make_table()

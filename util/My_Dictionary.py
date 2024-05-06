@@ -12,7 +12,7 @@ class my_dictionary(dict):
         if not self.initialing:
             self.valid = False
             self.table.update_inputs()
-    
+
     def __delitem__(self, value):
         super().__delitem__(value)
         if not self.initialing:
