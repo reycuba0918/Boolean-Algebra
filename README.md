@@ -166,7 +166,7 @@ Output:
          111 | 1 + !(1 * 1) | True
         ```
 
-* `inputs`: This parameter establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables in `truth_table`'s `expression`, with the corresponding key.
+* `inputs`: This parameter establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables in `truth_table`'s `expression`, with the corresponding key. To learn about what characters are considerd variables? or to learn about how a `truth_table`'s `expression` get replaced by its `inputs` [click here](#questions)
   * Note that this parameter initiates the property `inputs`. 
   * What does this parameter accept?
     This parameter accepts a `list` of `str`, each consisting solely of the characters '0' or '1'. The length of each `str` must be equal to the number of variables in the `expression` of the `truth_table`.
@@ -489,7 +489,14 @@ Output:
        11 | 1 * 1 |  1
        10 | 1 * 0 |  0
       ```
+### Questions
+
+#### What characters are considered variables in a `expression`?
 
 The variables in `expression` are any character in the `expression` that have an ASCII value that is in between 65-122 (A-Z or a-z).
 
-The charcters for each `input` in `inputs` replaces the variables in `expression` depending on the alphetical order of the variables in `expression`. Meaing that in `expression` "B + A", the `input` "01", would replace variable 'A' would be replaced by 0 and variable 'B' would be replaced by 1 which would be be "1 + 0". 
+#### How do the variables in a `expression` get replaced by its `inputs` in a `truth_table`?
+
+The charcters for each `input` in `inputs` replaces the variables in `expression` depending on the alphetical order of the variables in `expression`. Meaing that in `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' by 1 which would be be "1 + 0". 
+
+[To learn about what characters are considerd variables?](#what-are-variables-in-a-expression) or [to learn about how a `truth_table`'s `expression` get replaced by its `inputs` click here](#how-do-the-variables-in-a-expression-get-replaced-by-its-inputs-in-a-truth_table)
