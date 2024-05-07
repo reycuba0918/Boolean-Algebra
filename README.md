@@ -41,7 +41,7 @@ Output:
 
 ##### Optional:
 
-* `has_header`: this parameter passes it value to the property `has_header`, which determines whether a `valid` `truth_table` would be printed with it's header.
+* `has_header`: this parameter passes it value to the property `has_header`, which determines whether a `valid` `truth_table` gets printed with it's header.
   * By default it is set to `True`. So a default `valid` `truth_table` would print with it's header. 
     * Example:
       ```
@@ -166,8 +166,7 @@ Output:
          111 | 1 + !(1 * 1) | True
         ```
 
-* `inputs`: This parameter establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables in `truth_table`'s `expression`, with the corresponding key. To learn about what characters are considerd variables? or to learn about how a `truth_table`'s `expression` get replaced by its `inputs` [click here](#questions)
-  * Note that this parameter initiates the property `inputs`. 
+* `inputs`: This parameter initiates the property `inputs` and establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables of the `truth_table`'s `expression`, in a alphabitical order, with it's corresponding key. To learn about what characters are considerd variables? or to learn about how a `truth_table`'s `expression` get replaced by its `inputs` [click here](#questions).
   * What does this parameter accept?
     This parameter accepts a `list` of `str`, each consisting solely of the characters '0' or '1'. The length of each `str` must be equal to the number of variables in the `expression` of the `truth_table`.
     * By defualt this parameter holds an empty `list`. When this is the case, a `list` of all possible combinations will take it place.
@@ -319,7 +318,7 @@ Output:
 * `truth_table.table`: returns an object of type `dict` that is supposed to hold all the `boolean_constant_expression`s of the `truth_table`.
   * When `truth_table.valid` is set to `True`:
     * each key in the `dict` is of type `str` and is the same size as the amount of variables that are in the `truth_table.expression`.
-    * the `dict` will hold `boolean_constant_expression`s, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with it's variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key.
+    * the `dict` will hold `boolean_constant_expression`s, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with it's variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key in a alphbetical order. To learn about what characters are considerd variables? or to learn about how a `truth_table`'s `expression` get replaced by its `inputs` [click here](#questions).
   * When the `truth_table.table` gets modified:
     * the property `valid` is set to `False`.
     * the `truth_table`'s `inputs` get set to the keys of the modified `truth_table.table`.
@@ -403,7 +402,7 @@ Output:
          110 | 0 + 1 * 1 |  1
          111 | 1 + 1 * 1 |  1
          ```
-    * if `inputs` gets changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`.
+    * if `inputs` gets changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`. To learn about what characters are considerd variables? or to learn about how a `truth_table`'s `expression` get replaced by its `inputs` [click here](#questions).
       * Note that the order in which the `truth_table.table` stores its items and prints them can be maniputed by the order of `inputs`.
         * Example:
           ```
@@ -498,5 +497,3 @@ The variables in `expression` are any character in the `expression` that have an
 #### How do the variables in a `expression` get replaced by its `inputs` in a `truth_table`?
 
 The charcters for each `input` in `inputs` replaces the variables in `expression` depending on the alphetical order of the variables in `expression`. Meaing that in `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' by 1 which would be be "1 + 0". 
-
-[To learn about what characters are considerd variables?](#what-are-variables-in-a-expression) or [to learn about how a `truth_table`'s `expression` get replaced by its `inputs` click here](#how-do-the-variables-in-a-expression-get-replaced-by-its-inputs-in-a-truth_table)
