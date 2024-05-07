@@ -1,12 +1,55 @@
 # Bollean Algebra
 This project is a Python library that offers an intuitive approach to performing Boolean arithmetic.
 
+## Class Boolean_Constant_Expresssion
+
+This class creates a way to store and solve boolean expressions that are only made up of the constants'0' or '1'.
+
+### Big Idea
+
+Code:
+```
+from Boolean_Constant_Expresssion import boolean_constant_expresssion
+
+expression = boolean_constant_expresssion("1 * 0 + 1")
+
+print(expression)
+```
+Output:
+```
+1 * 0 + 1 = 1
+```
+### `boolean_constant_expresssion()`
+
+`boolean_constant_expresssion()` creates a `boolean_constant_expresssion` from a given `expression`.
+
+#### `boolean_constant_expresssion()` parameters:
+
+##### Required:
+
+* `expression`: fills the property `boolean_constant_expresssion.expression`.
+
+##### Optional:
+
+* `output_format`: 
+
+#### `boolean_constant_expresssion()` properties:
+
+* `expression`: holds the boolean constant expression of a `boolean_constant_expression`.
+
+* `output`: holds the boolean answer for the `expression` in its `boolean_constant_expresssion`.
+
+* `valid`: states whether `output` has been changed manually.
+
+* `output_format`: determines the format of the answer when it's `boolean_constant_expresssion` is printed.
+
 ## Class Truth_Table
+
 This class creates truth tables for a boolean algebraic expression.
 
 ### Big Idea
 
-code:
+Code:
 ```
 from Truth_Table import truth_table
 
@@ -41,7 +84,7 @@ Output:
 
 ##### Optional:
 
-* `has_header`: this parameter passes it value to the property `has_header`, which determines whether a `valid` `truth_table` gets printed with it's header.
+* `has_header`: this parameter passes its value to the property `has_header`, which determines whether a `valid` `truth_table` gets printed with its header.
   * By default it is set to `True`. So a default `valid` `truth_table` would print with it's header. 
     * Example:
       ```
