@@ -41,6 +41,82 @@ Output:
 
 ##### Optional:
 
+* `has_header`: this parameter passes it value to the property `has_header`, which determines whether a `valid` `truth_table` would be printed with it's header.
+  * By default it is set to `True`. So a default `valid` `truth_table` would print with it's header. 
+    * Example:
+      ```
+      from Truth_Table import truth_table
+
+      expression = "a * !b"
+      
+      table = truth_table(expression)
+      
+      print(table)
+      ```
+      ```
+       in | a * !b | out
+      ----|--------|-----
+       00 | 0 * !0 |  0
+       01 | 1 * !0 |  1
+       10 | 0 * !1 |  0
+       11 | 1 * !1 |  0
+      ```
+  * When `has_header` is False, the `truth_table` would be printed without a header.
+    * Example:
+      ```
+      from Truth_Table import truth_table
+      
+      expression = "a * !b"
+      
+      table = truth_table(expression, has_header = False)
+      
+      print(table)
+      ```
+      ```
+      00 | 0 * !0 | 0
+      01 | 1 * !0 | 1
+      10 | 0 * !1 | 0
+      11 | 1 * !1 | 0
+      ```
+  * Note that when the `truth_table` is not `valid` the `truth_table` will print without header even if `has_header` has been set to `True`.
+    * For example:
+      ```
+      from Truth_Table import truth_table
+      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+            
+      expression = "a * !b"
+      
+      table = truth_table(expression)
+      
+      print("valid: ", table.valid)
+      print("has_header: ", table.has_header)
+      print(table)
+      
+      print()
+      
+      table.table["01"] = boolean_constant_expresssion("1 + !1")
+      print("valid: ", table.valid)
+      print("has_header: ", table.has_header)
+      print(table)
+      ```
+      ```
+      valid:  True
+      has_header:  True
+       in | a * !b | out
+      ----|--------|-----
+       00 | 0 * !0 |  0
+       01 | 0 * !1 |  0
+       10 | 1 * !0 |  1
+       11 | 1 * !1 |  0
+      
+      valid:  False
+      has_header:  True
+      00 | 0 * !0 | 0
+      01 | 1 + !1 | 1
+      10 | 1 * !0 | 1
+      11 | 1 * !1 | 0
+      ```
+
 * `output_format`: this parameter intiates property `output_format` which specifies the format for displaying a `truth_table`'s outputs.
   * What does this parameter accept?
     * By defualt `output_format` is set to `int` meaning that the outputs will etheir be a 1 or 0.
@@ -417,4 +493,3 @@ Output:
 The variables in `expression` are any character in the `expression` that have an ASCII value that is in between 65-122 (A-Z or a-z).
 
 The charcters for each `input` in `inputs` replaces the variables in `expression` depending on the alphetical order of the variables in `expression`. Meaing that in `expression` "B + A", the `input` "01", would replace variable 'A' would be replaced by 0 and variable 'B' would be replaced by 1 which would be be "1 + 0". 
- 
