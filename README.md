@@ -20,14 +20,14 @@ Output:
 1 * 0 + 1 = 1
 ```
 
-### Characters in a Boolean Constant Expresssion
+### Characters in a Boolean Constant Expression
 
 * '1' stands for True. It indicates the affirmative or positive state in logical expression.
 * '0' represents False. It indicates the negative or opposite state in logical expression.
-* '!' symbol represents the logical NOT operation. It is used to invert the truth value of the the operand to the right of the symbol.
+* '!' symbol represents the logical NOT operation. It is used to invert the truth value of the operand to the right of the symbol.
 * '+' symbol is used to represent the logical OR operation. This operation evaluates to True ('1') if at least one of the operands is True
 * '*' symbol represents the logical AND operation. This operation evaluates to True ('1') if both operands are True
-* "()" similar to standard arthimic, in Boolean arithmetic, the parentheses "()" are used to group expressions.
+* "()" similar to standard arthritic, in Boolean arithmetic, the parentheses "()" are used to group expressions.
 
 ### `boolean_constant_expresssion()`
 
@@ -44,7 +44,7 @@ Output:
 
 * `output_format`: This parameter determines how the answer is going to look when the `boolean_constant_expression` is printed.
   * What are `type`s that can be passed to `output_format`? 
-    * `int`: By default this parameter is set to `int`. Meaing that when `boolean_constant_expression` is printed the answer would appear as '1' or '0'.
+    * `int`: By default, this parameter is set to `int`. Meaning that when `boolean_constant_expression` is printed the answer would appear as '1' or '0'.
       * Example:
         ```
         from Boolean_Constant_Expresssion import boolean_constant_expresssion
@@ -73,7 +73,7 @@ Output:
 #### `boolean_constant_expresssion` properties:
 
 * `boolean_constant_expression.expression`: in a `boolean_constant_expression`, it is the boolean constant expression that gets solved.
-  * it can be edited to a any other boolean constant expression in the form of a `str`. This causes the `output` to be recalculated.
+  * it can be edited to any other boolean constant expression in the form of a `str`. This causes the `output` to be recalculated.
     * Example:
       ```
       from Boolean_Constant_Expresssion import boolean_constant_expresssion
@@ -91,8 +91,8 @@ Output:
       1 * !(0 + 0) = 1
       ```
       
-* `boolean_constant_expression.output`: holds the answer for the `expression` of its `boolean_constant_expresssion` in the form of `int` 0 or 1.
-  * This property can be safely be edited to `int` 0 or 1 , but the property `valid` would be set to False.
+* `boolean_constant_expression.output`: holds the answer for the `expression` of its `boolean_constant_expression` in the form of `int` 0 or 1.
+  * This property can be safely edited to `int` 0 or 1, but the property `valid` would be set to False.
     * Example:
       ```
       from Boolean_Constant_Expresssion import boolean_constant_expresssion
@@ -120,7 +120,7 @@ Output:
       ```
         
 * `boolean_constant_expression.valid`: states whether `output` has been changed manually.
-  * When `valid` of a `boolean_constant_expression` is set to `true`, the `output` get recalculated using its current `expression`
+  * When `valid` of a `boolean_constant_expression` is set to `True`, the `output` gets recalculated using its current `expression`
     * example:
       ```
       from Boolean_Constant_Expresssion import boolean_constant_expresssion
@@ -160,7 +160,7 @@ Output:
 
 * `boolean_constant_expression.output_format`: in a `boolean_constant_expresssion`, it determines the format of the answer when printed.
   * What types can this property hold?
-    * `int`: by default this property get initiated to `int`. This means that by default the answer of a `boolean_constant_expresssion` would print as a '1' or '0'.
+    * `int`: by default this property gets initiated to `int`. This means that by default the answer of a `boolean_constant_expresssion` would print as a '1' or '0'.
       * Example:
         ```
         from Boolean_Constant_Expresssion import boolean_constant_expresssion
