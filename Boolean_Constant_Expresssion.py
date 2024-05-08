@@ -1,7 +1,7 @@
 class boolean_constant_expresssion:
 
     def __init__(self, expression: str, output_format = int) -> None:
-        self.output_format = output_format
+        self._output_format = output_format
         self._expression = expression
         self._output = boolean_constant_expresssion.boolean_arithmetic(self, self._expression)
         self._valid = True
@@ -40,6 +40,14 @@ class boolean_constant_expresssion:
         return eval(arithmethic_equ) if eval(arithmethic_equ) == 0 else 1
 
     @property
+    def output_format(self):
+        return self._output_format
+    
+    @output_format.setter
+    def output_format(self, new_value):
+        self._output_format = new_value
+        
+    @property
     def output(self):
         return self._output
         
@@ -55,7 +63,7 @@ class boolean_constant_expresssion:
     @expression.setter
     def expression(self, new_value):
         self._expression = new_value
-        boolean_constant_expresssion.boolean_arithmetic(self, self._expression)
+        self._output = boolean_constant_expresssion.boolean_arithmetic(self, self._expression)
     
     @property
     def valid(self):
@@ -70,7 +78,7 @@ class boolean_constant_expresssion:
             self._valid = new_value
     
     def __str__(self):
-        if self.output_format == bool:
+        if self._output_format == bool:
             return format("%s = %r" % (self._expression, False if self._output == 0 else True))
         else:
             return format("%s = %d" % (self._expression, self._output))
