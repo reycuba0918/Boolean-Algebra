@@ -22,8 +22,8 @@ Output:
 
 ### Characters in a Boolean Constant Expresssion
 
-* '1' stands for True. It indicates the affirmative or positive state in logical operations.
-* '0' represents False. It indicates the negative or opposite state in logical operations.
+* '1' stands for True. It indicates the affirmative or positive state in logical expression.
+* '0' represents False. It indicates the negative or opposite state in logical expression.
 * '!' symbol represents the logical NOT operation. It is used to invert the truth value of the the operand to the right of the symbol.
 * '+' symbol is used to represent the logical OR operation. This operation evaluates to True ('1') if at least one of the operands is True
 * '*' symbol represents the logical AND operation. This operation evaluates to True ('1') if both operands are True
@@ -215,6 +215,16 @@ Output:
  111 | 1 + !(1 * 1) |  1
 ```
 
+### Variables and how they get replaced?
+
+#### What characters are considered variables in an `expression`?
+
+The variables in `expression` are any character in the `expression` that has an ASCII value that is between 65-122 (A-Z or a-z).
+
+#### How do the variables in an `expression` get replaced by its `inputs` in a `truth_table`?
+
+The characters for each `input` in `inputs` replace the variables in `expression` depending on the alphabetical order of the variables in `expression`. Meaning that in the `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' with 1 which would be "1 + 0". 
+
 ### `truth_table()`
 
 `truth_table()` genarates a `truth_table` from a given `expression`.
@@ -353,7 +363,7 @@ Output:
          111 | 1 + !(1 * 1) | True
         ```
 
-* `inputs`: This parameter initiates the property `inputs` and establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables of the `truth_table`'s `expression`, in alphabetical order, with its corresponding key. To learn about what characters are considered variables or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#questions).
+* `inputs`: This parameter initiates the property `inputs` and establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables of the `truth_table`'s `expression`, in alphabetical order, with its corresponding key. To learn about what characters are considered variables or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
   * What does this parameter accept?
     This parameter accepts a `list` of `str`, each consisting solely of the characters '0' or '1'. The length of each `str` must be equal to the number of variables in the `expression` of the `truth_table`.
     * By default this parameter holds an empty `list`. When this is the case, a `list` of all possible combinations will take its place.
@@ -505,7 +515,7 @@ Output:
 * `truth_table.table`: returns an object of type `dict` that is supposed to hold all the `boolean_constant_expression`s of the `truth_table`.
   * When `truth_table.valid` is set to `True`:
     * each key in the `dict` is of type `str` and is the same size as the amount of variables that are in the `truth_table.expression`.
-    * the `dict` will hold `boolean_constant_expression`s, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with its variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key in alphabetical order. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#questions).
+    * the `dict` will hold `boolean_constant_expression`s, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with its variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key in alphabetical order. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
   * When the `truth_table.table` gets modified:
     * the property `valid` is set to `False`.
     * the `truth_table`'s `inputs` get set to the keys of the modified `truth_table.table`.
@@ -589,7 +599,7 @@ Output:
          110 | 0 + 1 * 1 |  1
          111 | 1 + 1 * 1 |  1
          ```
-    * if `inputs` gets changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#questions).
+    * if `inputs` gets changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
       * Note that the order in which the `truth_table.table` stores its items and prints them can be manipulated by the order of `inputs`.
         * Example:
           ```
@@ -675,12 +685,3 @@ Output:
        11 | 1 * 1 |  1
        10 | 1 * 0 |  0
       ```
-### Questions
-
-#### What characters are considered variables in an `expression`?
-
-The variables in `expression` are any character in the `expression` that has an ASCII value that is between 65-122 (A-Z or a-z).
-
-#### How do the variables in an `expression` get replaced by its `inputs` in a `truth_table`?
-
-The characters for each `input` in `inputs` replace the variables in `expression` depending on the alphabetical order of the variables in `expression`. Meaning that in the `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' with 1 which would be "1 + 0". 
