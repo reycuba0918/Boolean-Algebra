@@ -1,5 +1,5 @@
 # Boolean Algebra
-A Python library designed for performing Boolean arithmetic. It includes classes that allow you to evaluate Boolean constant expressions and generate truth tables from any Boolean expression.
+A Python library designed for performing Boolean arithmetic. It includes classes for, evaluating Boolean constant expressions and generating truth tables from a given Boolean expression.
 
 ## Class Boolean_Constant_Expresssion
 
