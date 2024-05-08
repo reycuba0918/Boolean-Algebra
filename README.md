@@ -223,7 +223,7 @@ The variables in `expression` are any character in the `expression` that has an 
 
 #### How do the variables in an `expression` get replaced by its `inputs` in a `truth_table`?
 
-The characters for each `input` in `inputs` replace the variables in `expression` depending on the alphabetical order of the variables in `expression`. Meaning that in the `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' with 1 which would be "1 + 0". 
+The characters for each `input` in `inputs`, replaces the variables in `expression` depending on the alphabetical order of the variables in `expression`. Meaning that in the `expression` "B + A", the `input` "01", would replace the variable 'A' with 0 and the variable 'B' with 1 which would be "1 + 0". 
 
 ### `truth_table()`
 
