@@ -1,7 +1,6 @@
 # Boolean Algebra
 A Python library designed for performing Boolean arithmetic. It includes classes that allow you to evaluate Boolean constant expressions and generate truth tables from any Boolean expression.
 
-
 ## Class Boolean_Constant_Expresssion
 
 This class creates a way to store and solve boolean expressions that only contain constants.
@@ -20,6 +19,16 @@ Output:
 ```
 1 * 0 + 1 = 1
 ```
+
+### Characters in a Boolean Constant Expresssion
+
+* '1' stands for True. It indicates the affirmative or positive state in logical operations.
+* '0' represents False. It indicates the negative or opposite state in logical operations.
+* '!' symbol represents the logical NOT operation. It is used to invert the truth value of the the operand to the right of the symbol.
+* '+' symbol is used to represent the logical OR operation. This operation evaluates to True ('1') if at least one of the operands is True
+* '*' symbol represents the logical AND operation. This operation evaluates to True ('1') if both operands are True
+* "()" similar to standard arthimic, in Boolean arithmetic, the parentheses "()" are used to group expressions.
+
 ### `boolean_constant_expresssion()`
 
 `boolean_constant_expresssion()` creates `boolean_constant_expresssion` from a given `expression`, which the answer for is stored in `output`.
@@ -149,7 +158,7 @@ Output:
       1 * 1 = 0
       ```
 
-* `output_format`: in a `boolean_constant_expresssion`, it determines the format of the answer when printed.
+* `boolean_constant_expression.output_format`: in a `boolean_constant_expresssion`, it determines the format of the answer when printed.
   * What types can this property hold?
     * `int`: by default this property get initiated to `int`. This means that by default the answer of a `boolean_constant_expresssion` would print as a '1' or '0'.
       * Example:
