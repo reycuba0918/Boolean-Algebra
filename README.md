@@ -1,17 +1,17 @@
 # Boolean Algebra
 A Python library designed for performing Boolean arithmetic. It includes classes for, evaluating Boolean constant expressions and generating truth tables from a given Boolean expression.
 
-## Class Boolean_Constant_Expresssion
-
-This class creates a way to store and solve boolean expressions that only contain constants.
+## Class Boolean_Constant_Expression
+ 
+This class creates a way to store and solve Boolean expressions that only contain constants.
 
 ### Big Idea
 
 Code:
 ```
-from Boolean_Constant_Expresssion import boolean_constant_expresssion
+from Boolean_Constant_Expression import boolean_constant_expression
 
-expression = boolean_constant_expresssion("1 * 0 + 1")
+expression = boolean_constant_expression("1 * 0 + 1")
 
 print(expression)
 ```
@@ -22,63 +22,63 @@ Output:
 
 ### Characters in a Boolean Constant Expression
 
-* '1' stands for True. It indicates the affirmative or positive state in logical expression.
-* '0' represents False. It indicates the negative or opposite state in logical expression.
-* '!' symbol represents the logical NOT operation. It is used to invert the truth value of the operand to the right of the symbol.
-* '+' symbol is used to represent the logical OR operation. This operation evaluates to True ('1') if at least one of the operands is True
-* '*' symbol represents the logical AND operation. This operation evaluates to True ('1') if both operands are True
-* "()" similar to standard arthritic, in Boolean arithmetic, the parentheses "()" are used to group expressions.
+* '1' stands for true. It indicates the affirmative or a positive state in logical expression.
+* '0' stands for false. It indicates the negative or opposite state in a logical expression.
+* '!' represents the logical NOT operation, which inverts the truth value of the operand immediately following it.
+* '+' symbol represents the logical OR operation. This operation evaluates to True ('1') if at least one of the operands is True.
+* '*' symbol represents the logical AND operation. This operation evaluates to True ('1') if both operands are true.
+* "()" like in standard arthritic, in Boolean arithmetic, the parentheses "()" are used to group expressions.
 
-### `boolean_constant_expresssion()`
+### `boolean_constant_expression()`
 
-`boolean_constant_expresssion()` creates `boolean_constant_expresssion` from a given `expression`, which the answer for is stored in `output`.
+`boolean_constant_expression()` creates `boolean_constant_expression` from a given `expression`, which the answer for is stored in `output`.
 
-#### `boolean_constant_expresssion()` parameters:
+#### `boolean_constant_expression()` parameters:
 
 ##### Required:
 
-* `expression`: This parameter accepts a Boolean constant expression in the form of a `str`, such as "1 + 1", "1 + (0 * 1)", or "0 + !(1 + 0)".
-   * This can later be accessed or modified using the property `boolean_constant_expression.expression`
+* `expression`: this parameter accepts a Boolean constant expression in the form of a `str`, such as "1 + 1", "1 + (0 * 1)", or "0 + !(1 + 0)".
+   * This can later be accessed or changed using the property `boolean_constant_expression.expression`
 
 ##### Optional:
 
-* `output_format`: This parameter determines how the answer is going to look when the `boolean_constant_expression` is printed.
-  * What are `type`s that can be passed to `output_format`? 
-    * `int`: By default, this parameter is set to `int`. Meaning that when `boolean_constant_expression` is printed the answer would appear as '1' or '0'.
+* `output_format`: this parameter determines how the answer is going to look when the `boolean_constant_expression` gets printed.
+  * What are the `types` that can be passed to the `output_format` parameter?
+    * `int`: by default, this parameter is set to `int`. Meaning that when `boolean_constant_expression` gets printed the answer would appear as a '1' or a '0'.
       * Example:
         ```
-        from Boolean_Constant_Expresssion import boolean_constant_expresssion
+        from Boolean_Constant_Expression import boolean_constant_expression
         
-        equ = boolean_constant_expresssion("0 + !(1 + 0)")
+        equ = boolean_constant_expression("0 + !(1 + 0)")
         
         print(equ)
         ```
         ```
         0 + !(1 + 0) = 0
         ```
-    * `bool`: When this parameter is set to `bool`, the answer of `boolean_constant_expression` is printed as "True" or "False".
+    * `bool`: when this parameter is set to `bool`, the answer of `boolean_constant_expression` gets printed as "True" or "False".
       * Example:
         ```
-        from Boolean_Constant_Expresssion import boolean_constant_expresssion
+        from Boolean_Constant_Expression import boolean_constant_expression
         
-        equ = boolean_constant_expresssion("0 + !(1 + 0)", output_format = bool)
+        equ = boolean_constant_expression("0 + !(1 + 0)", output_format = bool)
         
         print(equ)
         ```
         ```
         0 + !(1 + 0) = False
         ```
-  * Note that this parameter can be manipulated or accessed later by the property `boolean_constant_expression.output_format`.
+  * Note that this parameter can be manipulated or accessed later by the property ` `boolean_constant_expression.output_format`.
 
-#### `boolean_constant_expresssion` properties:
+#### `boolean_constant_expression` properties:
 
-* `boolean_constant_expression.expression`: in a `boolean_constant_expression`, it is the boolean constant expression that gets solved.
-  * it can be edited to any other boolean constant expression in the form of a `str`. This causes the `output` to be recalculated.
+* `boolean_constant_expression.expression`: in a `boolean_constant_expression`, it is the Boolean constant expression that gets solved.
+  * This property can be updated with any Boolean constant expression formatted as a `str`. Updating this property will trigger a recalculation of the `output`.
     * Example:
       ```
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
 
-      equ = boolean_constant_expresssion("1 * !(0 + 1)")
+      equ = boolean_constant_expression("1 * !(0 + 1)")
       
       print(equ)
       
@@ -92,12 +92,12 @@ Output:
       ```
       
 * `boolean_constant_expression.output`: holds the answer for the `expression` of its `boolean_constant_expression` in the form of `int` 0 or 1.
-  * This property can be safely edited to `int` 0 or 1, but the property `valid` would be set to False.
+  * This property can be safely edited to hold `int` 0 or 1, but the property `valid` would be set to False.
     * Example:
       ```
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
       
-      equ = boolean_constant_expresssion("1 * 1")
+      equ = boolean_constant_expression("1 * 1")
       
       print("Valid: ", equ.valid)
       
@@ -119,13 +119,14 @@ Output:
       1 * 1 = 0
       ```
         
-* `boolean_constant_expression.valid`: states whether `output` has been changed manually.
+
+* `boolean_constant_expression.valid`: shows whether the output has been manually changed.
   * When `valid` of a `boolean_constant_expression` is set to `True`, the `output` gets recalculated using its current `expression`
-    * example:
+    * Example:
       ```
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
       
-      equ = boolean_constant_expresssion("1 * 1")
+      equ = boolean_constant_expression("1 * 1")
       
       print("Valid: ", equ.valid)
       
@@ -158,26 +159,26 @@ Output:
       1 * 1 = 0
       ```
 
-* `boolean_constant_expression.output_format`: in a `boolean_constant_expresssion`, it determines the format of the answer when printed.
+* `boolean_constant_expression.output_format`: in a `boolean_constant_expression`, it decides the format of the answer when printed.
   * What types can this property hold?
-    * `int`: by default this property gets initiated to `int`. This means that by default the answer of a `boolean_constant_expresssion` would print as a '1' or '0'.
+    * `int`: this property is initialized as an `int` by default. This means that the answer of a `boolean_constant_expression` will be printed as either a '1' or a '0'.
       * Example:
         ```
-        from Boolean_Constant_Expresssion import boolean_constant_expresssion
+        from Boolean_Constant_Expression import boolean_constant_expression
         
-        equ = boolean_constant_expresssion("1 * 1")
+        equ = boolean_constant_expression("1 * 1")
         
         print(equ)
         ```
         ```
         1 * 1 = 1
         ```
-    * `bool`: this property can also can be set to `bool`, when this is the case, the answer of a `boolean_constant_expresssion` would print as "True" or "False".
+    * `bool`: this property can also be set to `bool`, when this is the case, the answer of a `boolean_constant_expression` would print as "True" or "False".
       * Example:
         ```
-        from Boolean_Constant_Expresssion import boolean_constant_expresssion
+        from Boolean_Constant_Expression import boolean_constant_expression
         
-        equ = boolean_constant_expresssion("1 * 1")
+        equ = boolean_constant_expression("1 * 1")
 
         equ.output_format = bool
         
@@ -189,7 +190,7 @@ Output:
          
 ## Class Truth_Table
 
-This class creates truth tables for a boolean algebraic expression.
+This class creates truth tables for a Boolean algebraic expression.
 
 ### Big Idea
 
@@ -227,19 +228,19 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
 
 ### `truth_table()`
 
-`truth_table()` genarates a `truth_table` from a given `expression`.
+`truth_table()` generates a `truth_table` from a given `expression`.
 
 #### Parameters for `truth_table()`
 
 ##### Required:
 
-* `expression`: intakes the boolean algebraic expression of type `str` from which the truth table will be generated which will be stored in the property `expression`. 
+* `expression`: intakes the Boolean algebraic expression of type `str` from which the truth table will be generated which will be stored in the property `expression`. 
   * e.g. "A + B", "A * C"
 
 ##### Optional:
 
 * `has_header`: this parameter passes its value to the property `has_header`, which determines whether a `valid` `truth_table` gets printed with its header.
-  * By default it is set to `True`. So a default `valid` `truth_table` would print with it's header. 
+  * By default, it is set to `True`. So, a default `valid` `truth_table` would print with its header. 
     * Example:
       ```
       from Truth_Table import truth_table
@@ -279,7 +280,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
     * For example:
       ```
       from Truth_Table import truth_table
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
             
       expression = "a * !b"
       
@@ -291,7 +292,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
       
       print()
       
-      table.table["01"] = boolean_constant_expresssion("1 + !1")
+      table.table["01"] = boolean_constant_expression("1 + !1")
       print("valid: ", table.valid)
       print("has_header: ", table.has_header)
       print(table)
@@ -314,9 +315,9 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
       11 | 1 * !1 | 0
       ```
 
-* `output_format`: this parameter intiates property `output_format` which specifies the format for displaying a `truth_table`'s outputs.
+* `output_format`: this parameter initiates property `output_format` which specifies the format for displaying a `truth_table`'s outputs.
   * What does this parameter accept?
-    * By default `output_format` is set to `int` meaning that the outputs will either be a '1' or '0'.
+    * By default, `output_format` is set to `int` meaning that the outputs will either be a '1' or a '0'.
       * Example:
         ```
         from Truth_Table import truth_table
@@ -363,10 +364,10 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
          111 | 1 + !(1 * 1) | True
         ```
 
-* `inputs`: This parameter initiates the property `inputs` and establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables of the `truth_table`'s `expression`, in alphabetical order, with its corresponding key. To learn about what characters are considered variables or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
+* `inputs`: this parameter initiates the property `inputs` and establishes the keys for the property `table` within its `truth_table`, where each key corresponds to a `boolean_constant_expression`. Note that the parameter `expression` of each `boolean_constant_expression` is formed by replacing the variables of the `truth_table`'s `expression`, in alphabetical order, with its corresponding key. To learn about which characters are considered variables or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
   * What does this parameter accept?
     This parameter accepts a `list` of `str`, each consisting solely of the characters '0' or '1'. The length of each `str` must be equal to the number of variables in the `expression` of the `truth_table`.
-    * By default this parameter holds an empty `list`. When this is the case, a `list` of all possible combinations will take its place.
+    * By default, this parameter holds an empty `list`. When this is the case, a `list` of all combinations will take its place.
       * Example:
         ```
         from Truth_Table import truth_table
@@ -389,7 +390,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
          110 | 1 * !(1 + 0) + 1 |  1
          111 | 1 * !(1 + 1) + 1 |  1
         ```
-    * When a `list` is provided the the keys of `truth_table.table` are going to match the `list`. Note that this includes the order, meaning that the `truth_table` will print in the order of the `list`.
+    * When a `list` is provided the keys of `truth_table.table` are going to match the `list`. Note that this includes the order, meaning that the `truth_table` will print in the order of the `list`.
       * Example:
         ```
         from Truth_Table import truth_table
@@ -413,8 +414,8 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
 
 ### Properties for `truth_table`
 
-* `truth_table.has_header`: is a `bool` that is used to determine whether the header of a `valid` `truth_table` will be printed when `truth_table` gets printed.
-  * By default it is set to `True` meaning that a `valid` `truth_table` would print like this:
+* `truth_table.has_header`: is a `bool` that is used to decide whether the header of a `valid` `truth_table` will be printed when `truth_table` gets printed.
+  * By default, it is set to `True` meaning that a `valid` `truth_table` would print like this:
     ```
      in  | B * !(A + C) + A | out
     -----|------------------|-----
@@ -423,7 +424,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
      100 | 0 * !(1 + 0) + 1 |  1
      100 | 0 * !(1 + 0) + 1 |  1
     ```
-  * When `has_header` is is false, a `truth_table` would be printed like this:
+  * When `has_header` is false, a `truth_table` would be printed like this:
     ```
     011 | 1 * !(0 + 1) + 0 | 0
     000 | 0 * !(0 + 0) + 0 | 0
@@ -434,7 +435,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
     * For example:
       ```
       from Truth_Table import truth_table
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
             
       expression = "a * !b"
       
@@ -446,7 +447,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
       
       print()
       
-      table.table["01"] = boolean_constant_expresssion("1 + !1")
+      table.table["01"] = boolean_constant_expression("1 + !1")
       print("valid: ", table.valid)
       print("has_header: ", table.has_header)
       print(table)
@@ -471,7 +472,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
     
 * `truth_table.output_format`: holds the output format that will be used when the `truth_table` gets printed.
   * What are states that `output_format` can hold?
-    * By default it is set to `int`. When this is the case the outputs for each output will either be a '1' or '0'.
+    * By default, it is set to `int`. When this is the case the outputs for each output will either be a '1' or a '0'.
       * Example:
         ```
         from Truth_Table import truth_table
@@ -514,15 +515,15 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
       
 * `truth_table.table`: returns an object of type `dict` that is supposed to hold all the `boolean_constant_expression`s of the `truth_table`.
   * When `truth_table.valid` is set to `True`:
-    * each key in the `dict` is of type `str` and is the same size as the amount of variables that are in the `truth_table.expression`.
-    * the `dict` will hold `boolean_constant_expression`s, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with its variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key in alphabetical order. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
+    * Each key in the `dict` is of type `str` and is the same size as the number of variables that are in the `truth_table. expression`.
+    * The `dict` will hold `boolean_constant_expression, where the `expression` of each `boolean_constant_expression` will be the `truth_table`'s `expression` but with its variables being replaced by the `boolean_constant_expression` `truth_table.table`'s key in alphabetical order. To learn about which characters are considered variables or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
   * When the `truth_table.table` gets modified:
-    * the property `valid` is set to `False`.
-    * the `truth_table`'s `inputs` get set to the keys of the modified `truth_table.table`.
+    * The property `valid` is set to `False`.
+    * The `truth_table`'s `inputs` get set to the keys of the modified `truth_table.table`.
 
-* `truth_table.expression`: holds the boolean algebraic expression of the `truth_table`.
+* `truth_table.expression`: holds the Boolean algebraic expression of the `truth_table`.
   * When the `truth_table.expression` changes:
-    * the `truth_table` is regenerated with the new `expression` and all possible `inputs`.
+    * The `truth_table` gets regenerated with the new `expression` and all possible `inputs`.
       * Example:
         ```
         from Truth_Table import truth_table
@@ -561,45 +562,44 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
     * `truth_table.valid` is set to `True`.
 
 * `truth_table.inputs`: This property returns a `list` of objects of type `str` that correlates to the `truth_table.table`'s keys.
-  * When `truth_table.inputs` changes:
-    * if `inputs` get set to an empty `list`, the `truth_table` will be regenerated with all possible `inputs`.
-      * Example:
-        ```
-        from Truth_Table import truth_table
+  * When `truth_table.inputs` changes, if `inputs` get set to an empty `list`, the `truth_table` gets regenerated with all possible `inputs`.
+    * Example:
+      ```
+      from Truth_Table import truth_table
 
-        expression = "A + B * C"
+      expression = "A + B * C"
+      
+      tests = ["000", "010", "100"]
+      
+      table = truth_table(expression, inputs = tests)
         
-        tests = ["000", "010", "100"]
+      print(table)
         
-        table = truth_table(expression, inputs = tests)
+      print()
         
-        print(table)
+      table.inputs.clear()
         
-        print()
+      print(table)
+      ```
+      ```
+       in  | A + B * C | out
+      -----|-----------|-----
+       000 | 0 + 0 * 0 |  0
+       010 | 0 + 1 * 0 |  0
+       100 | 0 + 0 * 1 |  0
         
-        table.inputs.clear()
-        
-        print(table)
-        ```
-        ```
-         in  | A + B * C | out
-        -----|-----------|-----
-         000 | 0 + 0 * 0 |  0
-         010 | 0 + 1 * 0 |  0
-         100 | 0 + 0 * 1 |  0
-        
-         in  | A + B * C | out
-        -----|-----------|-----
-         000 | 0 + 0 * 0 |  0
-         001 | 1 + 0 * 0 |  1
-         010 | 0 + 1 * 0 |  0
-         011 | 1 + 1 * 0 |  1
-         100 | 0 + 0 * 1 |  0
-         101 | 1 + 0 * 1 |  1
-         110 | 0 + 1 * 1 |  1
-         111 | 1 + 1 * 1 |  1
-         ```
-    * if `inputs` gets changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
+       in  | A + B * C | out
+      -----|-----------|-----
+       000 | 0 + 0 * 0 |  0
+       001 | 1 + 0 * 0 |  1
+       010 | 0 + 1 * 0 |  0
+       011 | 1 + 1 * 0 |  1
+       100 | 0 + 0 * 1 |  0
+       101 | 1 + 0 * 1 |  1
+       110 | 0 + 1 * 1 |  1
+       111 | 1 + 1 * 1 |  1
+       ```
+    * if `inputs` is changed or set to a non-empty `list`, the `truth_table` will be regenerated with the new or updated `inputs`. To learn about what characters are considered variables? or to learn about how a `truth_table`'s `expression` gets replaced by its `inputs` [click here](#variables-and-how-they-get-replaced).
       * Note that the order in which the `truth_table.table` stores its items and prints them can be manipulated by the order of `inputs`.
         * Example:
           ```
@@ -644,7 +644,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
     * Example:
       ```
       from Truth_Table import truth_table
-      from Boolean_Constant_Expresssion import boolean_constant_expresssion
+      from Boolean_Constant_Expression import boolean_constant_expression
       
       expression = "A * B"
       
@@ -657,7 +657,7 @@ The characters for each `input` in `inputs`, replaces the variables in `expressi
       
       print()
       
-      table.table["10"] = boolean_constant_expresssion("1 + 1")
+      table.table["10"] = boolean_constant_expression("1 + 1")
       print("Valid: ", table.valid)
       print(table)
       
