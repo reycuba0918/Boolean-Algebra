@@ -16,13 +16,11 @@ class truth_table:
    
     def make_table(self):
         self._table.initialing = True
-        self._table.valid = True
         keys = set()
         for character in self._expression:
             int_character = ord(character)
             if int_character >= 65 and int_character <= 122:
                 keys.add(character)
-        sorted(keys)
 
         variables = {}
         len_variables = len(keys)
@@ -32,7 +30,7 @@ class truth_table:
             for input in range(0, amount_of_tests):
                 input = format(input, formatter)
                 i = 0
-                for key in keys:
+                for key in sorted(keys):
                     variables[key] = input[i]
                     i += 1
                 test_equation = ""
@@ -47,7 +45,7 @@ class truth_table:
             for input in self._inputs:
                 if len(input) == len_variables:
                     i = 0
-                    for key in keys:
+                    for key in sorted(keys):
                         testing = input[i]
                         if testing == '0' or testing == '1':
                             variables[key] = input[i]
@@ -64,6 +62,7 @@ class truth_table:
                     raise ValueError()
                 self._table[input] = boolean_constant_expresssion(test_equation)
         self._table.initialing = False
+        self._table.valid = True
 
     def update_inputs(self):
         self._inputs = my_list(self, self.table.keys())
